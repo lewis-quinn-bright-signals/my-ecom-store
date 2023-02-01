@@ -1,0 +1,25 @@
+[
+    {
+        "id": "price_1MWKblBsIFWPebzsfhlAiKgh",
+        "title": "Test Product",
+        "description": "Lorem ipsom dolor",
+        "image": "/filler_img.png",
+        "price": 20.00
+    },
+
+    {
+        "id": "price_1MWKdLBsIFWPebzsJyBQOHMm",
+        "title": "Test Product Two",
+        "description": "Lorem ipsom dolor",
+        "image": "/filler_img2.png",
+        "price": 15.00
+    },
+
+    {
+        "id": "price_1MWKe3BsIFWPebzsAMJamWSG",
+        "title": "Test Product Three",
+        "description": "Lorem ipsom dolor",
+        "image": "/filler_img3.png",
+        "price": 10.00
+    }
+]
