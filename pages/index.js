@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 import products from '../products.json';
 
 export default function Home() {
-  console.log('products', products);
+  console.log('NEXT_PUBLIC_STRIPE_API_KEY', process.env.NEXT_PUBLIC_STRIPE_API_KEY);
   return (
     <>
       <Head>
