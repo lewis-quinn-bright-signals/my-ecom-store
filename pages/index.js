@@ -20,7 +20,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
+        {/* <div className={styles.description}>
           <p>
             Updated Filler Text
           </p>
@@ -41,26 +41,24 @@ export default function Home() {
               />
             </a>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
+          <h1 className='styles.title'>
+            Test Shop
+            </h1>
+
+          <p className={styles.description}>
+            This is a test shop
+          </p>
+
+          <p className={styles.description}>
+            Items: 2
+            <br/>
+            Total Cost: £20
+            <br/>
+            <button>Checkout</button>
+          </p>
         </div>
 
         <ul className={styles.grid}>
