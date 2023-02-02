@@ -18,7 +18,19 @@ export default function Home() {
 
   const [cart, updateCart] = useState(defaultCart);
 
-  console.log('cart', cart);
+  const cartItems = Object.keys(cart.products).map(key => {
+
+    const product = products.find(( { id }) => `${id}` === `${key}`);
+
+    return{
+
+      ...cart.products[key],
+      pricePerItem: products.price
+
+    }
+  });
+
+  console.log('cartItems', cartItems);
 
   function addToCart ({ id } = {}) {
     updateCart(prev => {
