@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
@@ -9,8 +10,35 @@ const inter = Inter({ subsets: ['latin'] })
 
 import products from '../products.json';
 
+const defaultCart = {
+  products: {}
+};
+
 export default function Home() {
-  console.log('NEXT_PUBLIC_STRIPE_API_KEY', process.env.NEXT_PUBLIC_STRIPE_API_KEY);
+
+  const [cart, updateCart] = useState(defaultCart);
+
+  console.log('cart', cart);
+
+  function addToCart ({ id } = {}) {
+    updateCart(prev => {
+      let cartState = {...prev};
+
+      if ( cartState.products[id] ) {
+        cartState.products[id] = cartState.products[id] + 1;
+      } else {
+        cartState.products[id] = {
+          id,
+          quantity: 1
+        }
+      }
+
+      return cartState;
+    })
+  };
+
+
+  
   return (
     <>
       <Head>
@@ -20,28 +48,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {/* <div className={styles.description}>
-          <p>
-            Updated Filler Text
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div> */}
 
         <div>
           <h1 className='styles.title'>
@@ -53,11 +59,11 @@ export default function Home() {
           </p>
 
           <p className={styles.description}>
-            Items: 2
+            <strong>Items: 2</strong>
             <br/>
-            Total Cost: £20
+            <strong>Total Cost: £20</strong>
             <br/>
-            <button>Checkout</button>
+            <button className={styles.button}>Checkout</button>
           </p>
         </div>
 
@@ -78,14 +84,17 @@ export default function Home() {
                 </a>
                 <p>
                   <button className={styles.button} onClick={() =>{
-                    initiateCheckout({
-                      lineItems: [
-                        {
-                          price: id,
-                          quantity: 1
-                        }
-                      ]
-                    });
+                    addToCart({
+                      id
+                    })
+                    // initiateCheckout({
+                    //   lineItems: [
+                    //     {
+                    //       price: id,
+                    //       quantity: 1
+                    //     }
+                    //   ]
+                    // });
                   }}>Buy Now!</button>
                 </p>
               </li>
