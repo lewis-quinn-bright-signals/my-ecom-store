@@ -76,6 +76,9 @@ export default function Home() {
                     { description }
                   </p>
                 </a>
+                <p>
+                  <button className={styles.button}>Buy Now!</button>
+                </p>
               </li>
             )
           })}
