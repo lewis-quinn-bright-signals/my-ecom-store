@@ -20,7 +20,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            filler text
+            Updated Filler Text
           </p>
           <div>
             <a
