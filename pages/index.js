@@ -43,7 +43,7 @@ export default function Home() {
           </div>
         </div> */}
 
-        <div className={styles.center}>
+        <div>
           <h1 className='styles.title'>
             Test Shop
             </h1>
