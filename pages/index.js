@@ -32,7 +32,7 @@ export default function Home() {
 
   const subtotal = cartItems.reduce((accumulator, { pricePerItem, quantity }) => {
     return accumulator + ( pricePerItem * quantity)
-  }, 0)
+  }, 0);
 
   console.log('subtotal', subtotal);
 
