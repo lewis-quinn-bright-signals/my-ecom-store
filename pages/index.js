@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '<test>/styles/Home.module.css'
 
+import { initiateCheckout } from '../lib/payments.js';
+
 const inter = Inter({ subsets: ['latin'] })
 
 import products from '../products.json';
@@ -77,7 +79,9 @@ export default function Home() {
                   </p>
                 </a>
                 <p>
-                  <button className={styles.button}>Buy Now!</button>
+                  <button className={styles.button} onClick={() =>{
+                    initiateCheckout();
+                  }}>Buy Now!</button>
                 </p>
               </li>
             )
