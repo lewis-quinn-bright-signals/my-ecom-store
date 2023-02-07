@@ -8,25 +8,29 @@
 }
 
 .title{
-  font-size: 2em;
+  font-size: 4em;
+  margin-bottom: 15px;
 }
 
 .description {
-  display: inherit;
-  justify-content: inherit;
-  align-items: inherit;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
   z-index: 2;
   font-family: var(--font-mono);
+  line-height: 1.5;
 }
 
 .description a {
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  text-align: center;
 }
 
 .description p {
@@ -44,17 +48,20 @@
 }
 
 .grid {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(4, minmax(25%, auto));
   width: var(--max-width);
   max-width: 100%;
   list-style: none;
+  align-items: stretch;
 }
 
 .card {
-  padding: 1rem 1.2rem;
+  margin: 1rem;
+  padding: 1.5rem 2.5rem;
+  flex-basis: calc(50% - 2rem);
   border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
+  background: #ffffff;
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
 }
@@ -65,16 +72,25 @@
 }
 
 .card h2 {
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.7rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.card h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.75;
 }
 
 .card p {
   margin: 0;
   opacity: 0.6;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.5;
-  max-width: 30ch;
+  text-align: center;
 }
 
 .center {
@@ -158,6 +174,7 @@
 
 /* button Styles*/
 .button{
+  margin-top: 20px;
   color: #ffffff;
   font-family: inherit;
   font-size: .9em;
@@ -192,25 +209,53 @@
   }
 }
 
+/* Tablet */
+@media (max-width: 960px){
+  .grid {
+    display: grid;
+  }
+
+  .card {
+    flex-basis: calc(50% - 2rem) !important;
+  }
+  
+  .card p {
+    text-align: center;
+  }
+
+  .card h2 {
+    text-align: center;
+    margin-top: 20px;;
+  }
+
+}
+
+
 /* Mobile */
 @media (max-width: 700px) {
+  
   .content {
     padding: 4rem;
   }
 
   .grid {
-    grid-template-columns: 1fr;
+    display: block;
     margin-bottom: 120px;
-    max-width: 320px;
+    
     text-align: center;
   }
 
   .card {
-    padding: 1rem 2.5rem;
+    padding: 2rem 3rem;
   }
 
   .card h2 {
     margin-bottom: 0.5rem;
+  }
+
+  .card img {
+    width: 66.66%;
+    padding: 1rem;
   }
 
   .center {

@@ -66,9 +66,9 @@ export default function Home() {
       <main className={styles.main}>
 
         <div>
-          <h1 className='styles.title'>
+          <h1 className={styles.title}>
             Test Shop
-            </h1>
+          </h1>
 
           <p className={styles.description}>
             This is a test shop
