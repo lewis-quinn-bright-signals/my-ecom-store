@@ -100,17 +100,17 @@ export default function Home() {
                 </a>
                 <p>
                   <button className={styles.button} onClick={() =>{
-                    addToCart({
-                      id
-                    })
-                    // initiateCheckout({
-                    //   lineItems: [
-                    //     {
-                    //       price: id,
-                    //       quantity: 1
-                    //     }
-                    //   ]
-                    // });
+                    // addToCart({
+                    //   id
+                    // })
+                    initiateCheckout({
+                      lineItems: [
+                        {
+                          price: id,
+                          quantity: 1
+                        }
+                      ]
+                    });
                   }}>Buy Now!</button>
                 </p>
               </li>
