@@ -68,6 +68,18 @@ export function useCartState() {
         // }
     
       }
+
+      function updateItem({ id, quantity }) {
+        updateItem((prev) => {
+            let cart = {...prev};
+      
+            if ( cart.products[id] ) {
+              cart.products[id].quantity = quantity;
+            }
+      
+            return cart;
+          })
+      }
     
       function checkout() {
         initiateCheckout({
@@ -83,9 +95,11 @@ export function useCartState() {
     return {
         cart,
         updateCart,
+        cartItems,
         subtotal,
         totalItems,
         addToCart,
+        updateItem,
         checkout
     }
 }

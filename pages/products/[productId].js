@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '../../styles/Product.module.css'
-
+import '<test>/styles/Home.module.css'
 import { useCart } from '../../hooks/use-cart.js';
 import Nav from '../../components/Nav';
 import products from '../../products.json';

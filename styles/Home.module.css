@@ -3,13 +3,55 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
+  width: 100%;
   min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.homeBanner {
+  min-height: 500px;
+  padding: 4rem 2.5rem;
+  width: 100%;
+  /* margin-bottom: 4rem; */
+  background-color: #ffffff;
+}
+
+.homeBannerCont {
+  /* display: flex; */
+  margin-top: 30px;
+  margin-bottom: auto;
+  position: relative;
 }
 
 .title{
-  font-size: 4em;
+  font-size: 5em;
   margin-bottom: 15px;
+  text-transform: capitalize;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.topRow {
+  display: flex;
+  width: 100%;
+  margin-left: 3rem;
+  margin-bottom: 1rem;
+}
+
+.topRow div {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.bottomRow {
+  display: flex;
+  width: 100%;
+  margin-right: 3rem;
+}
+
+.bottomRow div {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .description {
@@ -42,9 +84,53 @@
   border-radius: var(--border-radius);
 }
 
+.homeDescription {
+  margin-top: 2rem;
+  display: block;
+  justify-content: start;
+  align-items: start;
+  text-align: start;
+  font-size: 0.85rem;
+  max-width: var(--max-width);
+  width: 100%;
+  z-index: 2;
+  font-family: var(--font-mono);
+  line-height: 1.5;
+  font-size: 0.85rem;
+}
+
 .code {
   font-weight: 700;
   font-family: var(--font-mono);
+}
+
+.textBlock {
+  padding: 6rem 14rem 6rem 2.5rem;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.textBlockTitle {
+  font-size: 3rem;
+  display: block;
+  justify-content: start;
+  align-items: start;
+  text-align: start;
+  max-width: var(--max-width);
+  width: 100%;
+  z-index: 2;
+  line-height: 1.5;
+  margin-bottom: -15px;
+}
+
+.postCont{
+  position: relative;
+  width: 100%;
+  padding: 6rem 2.5rem;
+}
+
+.postTitle {
+  margin-bottom: 1rem;
 }
 
 .grid {
@@ -233,7 +319,9 @@
 
 /* Mobile */
 @media (max-width: 700px) {
-  
+  .homeBanner{
+    padding: 4rem 1rem;
+  }
   .content {
     padding: 4rem;
   }
@@ -311,6 +399,26 @@
       rgb(var(--background-end-rgb)) 40%
     );
     z-index: 1;
+  }
+  
+  .homeDescription {
+    font-size: 0.75rem;
+  }
+
+  .topRow {
+    margin-left: 1rem;
+  }
+
+  .bottomRow {
+    margin-right: 1rem;
+  }
+  
+  .textBlock{
+    padding: 6rem 10rem 6rem 1rem;
+  }
+
+  .postCont {
+    padding: 6rem 1rem;
   }
 }
 

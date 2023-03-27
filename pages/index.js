@@ -12,9 +12,20 @@ import products from '../products.json';
 
 import { useCart } from '../hooks/use-cart.js';
 
+
+
 export default function Home() {
 
   const { subtotal, totalItems, addToCart, checkout } = useCart();
+
+  const string = 'This is a test';
+  const arr1 = string.split(' ')
+
+  // const LogoScroller = ({ string }) => {
+    const topRowTitle = arr1.filter((el, i) => i <= 1);
+    const bottomRowTitle = arr1.filter((el, i) => i > 1 && i <= 9);
+
+  console.log('did it work?', arr1)
   
   return (
     <>
@@ -29,37 +40,81 @@ export default function Home() {
 
       <main className={styles.main}>
 
-        <div>
-          <h1 className={styles.title}>
-            This is a test shop
-          </h1>
+        <div className={styles.homeBanner}>
+          <div className={styles.homeBannerCont}>
+            <div className={styles.topRow}>
+              {topRowTitle.map(( arr1 ) => (
+                <div>
+                  <h2 className={styles.title}>
+                    {arr1}
+                  </h2>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.bottomRow}>
+              {bottomRowTitle.map(( arr1 ) => (
+                <div>
+                  <h2 className={styles.title}>
+                    {arr1}
+                  </h2>
+                </div>
+              ))}
+            </div>
+
+            <p className={styles.homeDescription}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br/> Praesent consequat accumsan purus nec scelerisque.
+            </p>
+          </div>
+        </div>
+        
+
+        <div className={styles.textBlock}>
+          <h3 className={styles.textBlockTitle}>
+            Text Block Heading
+          </h3>
+          <p className={styles.homeDescription}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consequat accumsan purus nec scelerisque. Pellentesque maximus tortor magna, ut rutrum ex volutpat mattis. Suspendisse ullamcorper purus velit, nec congue enim consequat eget. Duis et orci pharetra quam pharetra volutpat at in quam. Nulla facilisi. Curabitur congue, urna nec consectetur luctus, metus mi consequat ligula, aliquet sollicitudin urna ex nec felis. Aenean orci purus, imperdiet venenatis vehicula eu, placerat ac sem. Nullam lacinia nunc sit amet lacus dictum pulvinar in ac velit. Donec lacinia dolor tincidunt sapien porta tincidunt.
+          </p>
         </div>
 
-        <ul className={styles.grid}>
-          {products.map(product => {
-            const { id, title, price, description, image } = product;
-            return(
-              <li key={ id } className={styles.card}>
-                <Link href={`/products/${id}`}>
-                    <img src={ image } alt={ title }></img>
-                    <h2 className={inter.className}>
-                      { title }
-                    </h2>
-                    <h3>£{ price }</h3>
-                    <p className={inter.className}>
-                      { description }
-                    </p>
-                </Link>
-                <p>
-                  <button className={styles.button} onClick={() => 
-                    addToCart({ 
-                      id 
-                    })}>Add To Cart</button>
-                </p>
-              </li>
-            )
-          })}
-        </ul>
+        <div className={styles.postCont}>
+
+            <div className={styles.postTitle}>
+              <h3 className={styles.textBlockTitle}>
+                Text Block Heading
+              </h3>
+            </div>
+
+            <div className={styles.postCarousel}>
+              <ul className={styles.grid}>
+                {products.map(product => {
+                  const { id, title, price, description, image } = product;
+                  return(
+                    <li key={ id } className={styles.card}>
+                      <Link href={`/products/${id}`}>
+                          <img src={ image } alt={ title }></img>
+                          <h2 className={inter.className}>
+                            { title }
+                          </h2>
+                          <h3>£{ price }</h3>
+                          <p className={inter.className}>
+                            { description }
+                          </p>
+                      </Link>
+                      <p>
+                        <button className={styles.button} onClick={() => 
+                          addToCart({ 
+                            id 
+                          })}>Add To Cart</button>
+                      </p>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+        </div>
+        
       </main>
     </>
   )
